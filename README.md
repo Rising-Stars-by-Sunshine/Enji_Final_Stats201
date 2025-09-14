@@ -21,21 +21,13 @@ flowchart TD
     F --> G[Anticipated Results]
     G --> H[Intellectual Merit & Practical Impacts]
 
-## FAIR & CARE Principles
+FAIR & CARE Principles
 
-**Findable:** Indicators are openly available from the World Bank ESG Data Catalog
-.
-
-**Accessible:** Data and code are openly accessible in this repository.
-
-**Interoperable:** Dataset is formatted as a tidy long-panel CSV.
-
-**Reusable:** Full dictionary and license provided.
-
-**Collective Benefit:** Contributes to global sustainability monitoring.
-
-**Authority to Control:** Respects official definitions by national statistical offices.
-
-**Responsibility:** Clear documentation of uncertainty and imputation methods.
-
-**Ethics:** Avoids deficit framings, notes limits of perception-based governance data.
+Findable: Indicators are openly available from the World Bank ESG Data Catalog
+Accessible: Data and code are openly accessible in this repository.
+Interoperable: Dataset is formatted as a tidy long-panel CSV.
+Reusable: Full dictionary and license provided.
+Collective Benefit: Contributes to global sustainability monitoring.
+Authority to Control: Respects official definitions by national statistical offices.
+Responsibility: Clear documentation of uncertainty and imputation methods.
+Ethics: Avoids deficit framings, notes limits of perception-based governance data.
