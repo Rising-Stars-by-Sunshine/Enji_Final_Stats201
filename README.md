@@ -1,8 +1,45 @@
 # Enji_ProblemSet1_STATS201
-# Clustering and Forecasting Country-Level ESG Trajectories (1990–2023)
+Part I – Revised Proposal
+Acknowledgment
+I am grateful to Professor Luyao Zhang and my peer reviewer, Undran Enkhbaatar, for thoughtful and constructive feedback on Problem Set 1. Their comments helped me sharpen the research question, justify methodological choices with credible sources, and improve the coherence of the narrative. Professor Zhang’s feedback pushed me to articulate what is new about the project and to anchor the methods in recognized best practices. Undran’s review prompted clearer transitions, explicit visualization plans, and stronger explanations of equal versus PCA weighting and imputation strategy. These revisions are reflected throughout this document.
+Point-by-Point Response to Feedback
+Professor Zhang noted that my earlier draft listed methods without defining them and did not clearly state the contribution. I now define each method with citations and foreground the novelty: a Mongolia-focused, reproducible analysis that tests sensitivity of results to reasonable preprocessing and weighting choices and then produces forecasts to 2030. She also emphasized reproducibility and reflexivity; in response, I document imputation and weighting choices, cite composite-indicator guidance, and present forecasts with uncertainty bands. Undran asked why both equal-weighted and PCA-weighted indices are needed and how imputation bias would be handled. Equal weights serve as a transparent baseline; PCA provides a variance-based alternative, and both are evaluated under two imputation approaches to reveal robustness. She also requested specific figures; I now commit to time-series plots, a small sensitivity heatmap, and forecast plots.
+Background and Motivation
+Composite indicators are widely used to summarize sustainability performance, yet results often hinge on methodological choices in scaling, imputation, and weighting. The OECD Handbook on Constructing Composite Indicators recommends explicit normalization, transparent imputation, alternative weighting, and sensitivity analysis to avoid misleading interpretations (OECD 2008). At the ESG level, divergence across methodologies is well documented and can meaningfully change assessments, underscoring the need for robustness checks (Berg, Kölbel, and Rigobon 2022). Mongolia is a timely case because it remains highly energy-intensive while renewable uptake lags potential, even as national policy targets through 2030 call for efficiency gains and energy diversification. For comparative learning, China’s past two decades show how coordinated policy can cut energy intensity and expand renewables at scale, offering a benchmark against which to interpret Mongolia’s trajectory (IEA 2020). This study focuses narrowly on renewable energy consumption as a share of total final energy and energy intensity of GDP using World Bank indicators, tests whether methodological choices alter Mongolia’s narrative, and provides short-term forecasts to 2030.
+Research Question
+How have Mongolia’s renewable energy share and energy intensity evolved since 1990, how sensitive are conclusions to alternative imputation and weighting choices in a simple mini-index, and what lessons from China’s experience could inform Mongolia’s path to meeting its 2030 energy policy goals?
+Literature Review
+The composite-indicator literature establishes the need for transparent scaling, imputation, weighting, and robustness checks (OECD 2008). ESG research demonstrates that methodological divergence changes outcomes, motivating sensitivity analysis in index construction (Berg, Kölbel, and Rigobon 2022). Global environmental indices such as the Environmental Performance Index illustrate how aggregation and weighting shape country narratives and have themselves been audited for methodological soundness, reinforcing the importance of explicit choices (Wendling et al. 2020; JRC statistical audit of EPI 2020). For comparative context, the IEA documents China’s substantial reduction in energy intensity through binding efficiency programs and complementary policies, providing a credible benchmark for interpreting Mongolia’s efficiency trajectory (IEA 2020). Together, these sources justify a Mongolia-focused study that is modest in scope but rigorous about method and transparency.
+Reasons for Choosing Indicators
+The renewable energy consumption share directly captures Mongolia’s diversification away from coal and aligns with national energy policy priorities for 2030. The energy intensity of GDP is the official SDG 7.3 efficiency indicator and summarizes whether economic growth is decoupling from energy use. Both are standard, internationally recognized World Bank indicators with clear definitions and provenance, enabling reproducible analysis and defensible cross-national comparisons (World Bank metadata for EG.FEC.RNEW.ZS; World Bank metadata for EG.EGY.PRIM.PP.KD). DataBank DataBank
+Methodology
+Data and preprocessing. I use World Bank annual series for Mongolia, 1990–2021: renewable energy consumption as a percentage of total final energy (EG.FEC.RNEW.ZS) and energy intensity of primary energy (MJ per $2017 PPP GDP, EG.EGY.PRIM.PP.KD). Short gaps are filled by forward fill; longer gaps use a simple mean-based imputation to avoid discarding years while keeping assumptions transparent. Indicators are standardized to z-scores to place different units on a comparable scale, following composite-indicator best practice (OECD 2008). DataBank DataBank OECD
+Mini-index construction and sensitivity. I construct two versions of a minimal composite: an equal-weighted average of standardized indicators as a transparent baseline, and a PCA-weighted index using loadings from the first principal component as data-driven weights. PCA concentrates variance in orthogonal components and provides a principled alternative to arbitrary weights (Jolliffe and Cadima 2016). I then compare Mongolia’s trajectories under both weighting schemes and under both imputation approaches to assess robustness (OECD 2008; Jolliffe and Cadima 2016). Royal Society Publishing OECD
+Forecasting to 2030. For each indicator separately, I fit three models and evaluate accuracy on a recent hold-out window:
+ARIMA, a classical univariate time-series model combining autoregression, differencing, and moving averages (Box, Jenkins, and Reinsel 2015).
 
-## Abstract
-This project constructs transparent Environmental, Social, and Governance (ESG) pillar scores from World Bank indicators (1990–2023) and applies machine learning to cluster countries by ESG profiles and forecast pillar trajectories to 2030. The goal is to provide a reproducible, FAIR/CARE-aligned data descriptor and baseline ML workflow for global sustainability benchmarking.
+
+Random Forest regression, a non-parametric ensemble of decision trees that captures non-linear dynamics (Breiman 2001).
+
+
+AutoGluon-Tabular, an AutoML ensemble that stacks multiple models and tunes hyperparameters for tabular series (Erickson et al. 2020).
+
+
+I report RMSE and MAE on the hold-out set and present 2026–2030 forecasts with prediction intervals. Code and environment details will be documented in notebooks to ensure reproducibility.
+Anticipated Results and Visualizations
+I expect energy intensity to decline gradually yet remain high by international standards, while renewable energy share increases modestly from a low base. The equal-weighted and PCA-weighted indices may produce small differences in slope or level, illustrating why sensitivity checks matter. Figures will include line plots of both indicators for 1990–latest, a small sensitivity heatmap comparing index values across weighting and imputation choices, and forecast plots through 2030 with uncertainty bands. I will interpret whether projected efficiency improvements and renewable growth rates appear sufficient for Mongolia’s 2030 aims, and I will contextualize feasible acceleration using lessons from China’s efficiency programs documented by the IEA (IEA 2020). World Bank Open Data World Bank Open Data Environmental Performance Index
+Ethical and Practical Considerations
+This study is descriptive, not causal, and results depend on indicator selection, normalization, imputation, and weighting. To ensure transparency, I disclose each choice, test plausible alternatives, and report uncertainty. This mirrors composite-indicator guidance on sensitivity analysis (OECD 2008).
+Applying the FAIR principles, the World Bank’s ESG dataset is highly findable and accessible, with consistent metadata and open download formats, which makes it well suited for reproducible research. However, its interoperability is limited because indicators come from heterogeneous sources with uneven update cycles, and reusability can be constrained by unclear documentation of underlying country methodologies.
+From a CARE perspective, governance indicators in particular may embed biases because they rely on perception-based surveys that reflect international viewpoints rather than local realities. For Mongolia, small sample sizes and missingness mean that composite indices risk reinforcing deficit narratives if not contextualized. Following collective benefit, I interpret results as policy-relevant but not diagnostic, and under authority to control I acknowledge that national agencies should have final say over how these indicators represent their context. By foregrounding responsibility and ethics, I aim to use the dataset reflexively: not just as numbers, but as contested representations whose limitations are part of the analysis itself.
+References (Chicago author–date)
+Berg, Florian, Julian F. Kölbel, and Roberto Rigobon. 2022. “Aggregate Confusion: The Divergence of ESG Ratings.” Review of Finance 26 (6): 1315–44. https://doi.org/10.1093/rof/rfac033. Oxford Academic+1
+Box, George E. P., Gwilym M. Jenkins, and Gregory C. Reinsel. 2015. Time Series Analysis: Forecasting and Control. 5th ed. Hoboken, NJ: Wiley.
+Breiman, Leo. 2001. “Random Forests.” Machine Learning 45 (1): 5–32. https://doi.org/10.1023/A:1010933404324. SpringerLink
+Erickson, Nick, Jonas Mueller, Alexander Shirkov, Hang Zhang, Pedro Larroy, Mu Li, and Alexander Smola. 2020. “AutoGluon-Tabular: Robust and Accurate AutoML for Structured Data.” arXiv 2003.06505. https://arxiv.org/abs/2003.06505. arXiv+1
+International Energy Agency (IEA). 2020. Energy Efficiency 2020. Paris: IEA. https://www.iea.org/reports/energy-efficiency-2020. Environmental Performance Index
+Jolliffe, Ian T., and Jorge Cadima. 2016. “Principal Component Analysis: A Review and Recent Developments.” Philosophical Transactions of the Royal Society A 374 (2065): 20150202. https://doi.org/10.1098/rsta.2015.0202. Royal Society Publishing
+
 
 ## System Configuration
 - **Local:** Python 3.12, Jupyter Notebook, pandas, scikit-learn, statsmodels, matplotlib, seaborn  
@@ -10,13 +47,4 @@ This project constructs transparent Environmental, Social, and Governance (ESG) 
 - **Version Control:** Git + GitHub  
 - **Reproducibility:** Deterministic seeds, requirements.txt to be added  
 
-## Conceptual Flowchart
-```mermaid
-flowchart TD
-    A[Background & Motivation] --> B[Research Question]
-    B --> C[Data Preparation]
-    C --> D[Composite ESG Pillars]
-    D --> E[Clustering Countries]
-    E --> F[Forecasting to 2030]
-    F --> G[Anticipated Results]
-    G --> H[Intellectual Merit & Practical Impacts]
+
