@@ -12,6 +12,34 @@ I am grateful to Professor **Luyao Zhang** and my peer reviewer, **Undran Enkhba
 
 - **Peer Reviewer (Undran)**: Asked why equal vs PCA weighting, how imputation bias is handled, and requested figures.  
   ✅ Explained equal vs PCA rationale, tested both imputation methods, and committed to visualizations (time-series plots, heatmap, forecasts).
+  
+flowchart TD
+  A[Background & Motivation]
+  B[Research Question]
+  C[Indicators]
+  D[Methodology]
+  D1[Data & Preprocessing]
+  D2[Mini-Index Construction]
+  D3[Forecasting to 2030]
+  E[Anticipated Results & Visualizations]
+  F[Ethical & Practical Considerations]
+  G[Policy Implications: Lessons from China]
+
+  A --> B
+  B --> C
+  C -->|Renewable Share + Energy Intensity| D
+  D --> D1
+  D1 --> D2
+  D2 --> D3
+  D3 --> E
+  E --> F
+  F --> G
+
+  %% cross-links / annotations
+  A -.->|Comparative context| B
+  D2 -.->|Equal vs PCA Weights| E
+  D3 -.->|ARIMA / ETS / DirectTabular| E
+
 
 ---
 
@@ -103,36 +131,5 @@ I am grateful to Professor **Luyao Zhang** and my peer reviewer, **Undran Enkhba
 - **Version Control:** Git + GitHub  
 - **Reproducibility:** Deterministic seeds, requirements.txt to be added
 
-
-
-
-
-
-flowchart TD
-  A[Background & Motivation]
-  B[Research Question]
-  C[Indicators]
-  D[Methodology]
-  D1[Data & Preprocessing]
-  D2[Mini-Index Construction]
-  D3[Forecasting to 2030]
-  E[Anticipated Results & Visualizations]
-  F[Ethical & Practical Considerations]
-  G[Policy Implications: Lessons from China]
-
-  A --> B
-  B --> C
-  C -->|Renewable Share + Energy Intensity| D
-  D --> D1
-  D1 --> D2
-  D2 --> D3
-  D3 --> E
-  E --> F
-  F --> G
-
-  %% cross-links / annotations
-  A -.->|Comparative context| B
-  D2 -.->|Equal vs PCA Weights| E
-  D3 -.->|ARIMA / ETS / DirectTabular| E
 
 
