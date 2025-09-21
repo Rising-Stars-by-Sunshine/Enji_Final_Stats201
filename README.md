@@ -95,6 +95,13 @@ I am grateful to Professor **Luyao Zhang** and my peer reviewer, **Undran Enkhba
 - Wendling, Z.A., et al. 2020. *2020 Environmental Performance Index.* Yale Center for Environmental Law & Policy.  
 
 ---
+
+
+## System Configuration
+- **Local:** Python 3.12, Jupyter Notebook, pandas, scikit-learn, statsmodels, matplotlib, seaborn  
+- **Cloud:** Google Colab (GPU optional)  
+- **Version Control:** Git + GitHub  
+- **Reproducibility:** Deterministic seeds, requirements.txt to be added  
 flowchart TD
 
 A[Background & Motivation] --> B[Research Question]
@@ -114,11 +121,4 @@ D2 -->|Equal vs PCA Weights| E
 D3 -->|ARIMA / Random Forest / AutoGluon| E
 
 F --> G[Policy Implications: Lessons from China]
-
-## System Configuration
-- **Local:** Python 3.12, Jupyter Notebook, pandas, scikit-learn, statsmodels, matplotlib, seaborn  
-- **Cloud:** Google Colab (GPU optional)  
-- **Version Control:** Git + GitHub  
-- **Reproducibility:** Deterministic seeds, requirements.txt to be added  
-
 
