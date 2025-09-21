@@ -95,6 +95,25 @@ I am grateful to Professor **Luyao Zhang** and my peer reviewer, **Undran Enkhba
 - Wendling, Z.A., et al. 2020. *2020 Environmental Performance Index.* Yale Center for Environmental Law & Policy.  
 
 ---
+flowchart TD
+
+A[Background & Motivation] --> B[Research Question]
+B --> C[Indicators]
+C --> D[Methodology]
+
+D --> D1[Data & Preprocessing]
+D1 --> D2[Mini-Index Construction]
+D2 --> D3[Forecasting to 2030]
+
+D3 --> E[Anticipated Results & Visualizations]
+E --> F[Ethical & Practical Considerations]
+
+A -.->|Comparative context| B
+C -->|Renewable Share + Energy Intensity| D
+D2 -->|Equal vs PCA Weights| E
+D3 -->|ARIMA / Random Forest / AutoGluon| E
+
+F --> G[Policy Implications: Lessons from China]
 
 ## System Configuration
 - **Local:** Python 3.12, Jupyter Notebook, pandas, scikit-learn, statsmodels, matplotlib, seaborn  
