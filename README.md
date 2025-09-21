@@ -1,31 +1,5 @@
 # Enji_ProblemSet1_STATS201
 # Problem Set 2 – Revised Proposal
-flowchart TD
-  A[Background & Motivation]
-  B[Research Question]
-  C[Indicators]
-  D[Methodology]
-  D1[Data & Preprocessing]
-  D2[Mini-Index Construction]
-  D3[Forecasting to 2030]
-  E[Anticipated Results & Visualizations]
-  F[Ethical & Practical Considerations]
-  G[Policy Implications: Lessons from China]
-
-  A --> B
-  B --> C
-  C -->|Renewable Share + Energy Intensity| D
-  D --> D1
-  D1 --> D2
-  D2 --> D3
-  D3 --> E
-  E --> F
-  F --> G
-
-  %% cross-links / annotations
-  A -.->|Comparative context| B
-  D2 -.->|Equal vs PCA Weights| E
-  D3 -.->|ARIMA / ETS / DirectTabular| E
 
 
 ## Acknowledgment
@@ -122,6 +96,23 @@ I am grateful to Professor **Luyao Zhang** and my peer reviewer, **Undran Enkhba
 - Wendling, Z.A., et al. 2020. *2020 Environmental Performance Index.* Yale Center for Environmental Law & Policy.  
 
 ---
+```mermaid
+flowchart TD
+  A[Background & Motivation] --> B[Research Question]
+  B --> C[Indicators]
+  C -->|Renewable Share + Energy Intensity| D[Methodology]
+  D --> D1[Data & Preprocessing]
+  D1 --> D2[Mini-Index Construction]
+  D2 --> D3[Forecasting to 2030]
+  D3 --> E[Anticipated Results & Visualizations]
+  E --> F[Ethical & Practical Considerations]
+  F --> G[Policy Implications: Lessons from China]
+
+  %% cross-links / annotations
+  A -.->|Comparative context| B
+  D2 -.->|Equal vs PCA Weights| E
+  D3 -.->|ARIMA / ETS / DirectTabular| E
+```
 
 
 ## System Configuration
