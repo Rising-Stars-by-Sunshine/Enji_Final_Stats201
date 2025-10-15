@@ -7,10 +7,7 @@
 ---
 
 ## 📘 Abstract
-This project evaluates Mongolia’s renewable-energy transition under two major policy interventions—the 2015 **Feed-in Tariff (FIT) Law** and the 2021 **New Recovery Policy (NRP)**—using the World Bank’s ESG dataset (1990–2021).  
-Machine-learning and statistical models, including interrupted-time-series regression, exponential-smoothing (ETS) forecasting, and vector-autoregression, are applied to analyze policy effects on renewable-energy consumption and energy intensity.  
-
-Results show that while renewable capacity has expanded to nearly 18 percent of installed power, actual renewable consumption has stagnated. Efficiency improvements continue but remain largely coal-based. The findings suggest that stronger grid investment, competitive renewable-energy auctions, and cross-sectoral integration are necessary to meet Mongolia’s 2030 sustainability goals.
+This project analyzes how Mongolia’s 2015 Feed-in Tariff (FIT) Law, designed to incentivize private renewable generation, and the 2021 New Recovery Policy, which renewed investment in green infrastructure, have shaped these outcomes. A causal inference model (OLS difference-in-differences) tests whether the 2015 FIT Law significantly changed renewable energy trends, while an ETS model forecasts future patterns through 2030. Results show limited improvement in both renewable consumption and energy efficiency, suggesting that Mongolia’s policies have yet to produce large-scale transformation.
 
 ---
 
