@@ -38,9 +38,9 @@ Results show that while renewable capacity has expanded to nearly 18 percent of 
 
 | Task | Folder | Notebook or File |
 |------|---------|------------------|
-| **1. Data preprocessing** | `data/` | `data_cleaning.ipynb` |
-| **2. ML for Explanation** | `code/explanation/` | `renewable_nlp_network.ipynb` |
-| **3. ML for Prediction** | `code/prediction/` | `ets_autogluon_forecast.ipynb` |
+| **1. Data preprocessing** | `data/` | `data` |
+| **2. ML for Explanation** | `code/explanation/` | `MLExplanation.ipynb` |
+| **3. ML for Prediction** | `code/prediction/` | `Enji_Stats201_Final.ipynb` |
 | **4. Visualization outputs** | `visualizations/` | PNG / SVG figures used in report |
 | **5. Report and Poster** | `docs/` | Final PDFs and supplementary files |
 
