@@ -1,125 +1,87 @@
-# Enji_ProblemSet1_STATS201
-# Problem Set 2 – Revised Proposal
+# 🟢 Analyzing and Forecasting Mongolia’s Renewable-Energy Trajectory
 
-
-## Acknowledgment
-I am grateful to Professor **Luyao Zhang** and my peer reviewer, **Undran Enkhbaatar**, for thoughtful and constructive feedback on Problem Set 1. Their comments helped me sharpen the research question, justify methodological choices with credible sources, and improve the coherence of the narrative.
-
----
-
-## Point-by-Point Response to Feedback
-- **Professor Zhang**: Requested clearer definitions, novelty statement, reproducibility, and reflexivity.  
-  ✅ Added method definitions, cited best practices, clarified contribution, documented imputation/weighting, and included uncertainty bands.  
-
-- **Peer Reviewer (Undran)**: Asked why equal vs PCA weighting, how imputation bias is handled, and requested figures.  
-  ✅ Explained equal vs PCA rationale, tested both imputation methods, and committed to visualizations (time-series plots, heatmap, forecasts).
+**Author:** Enkhjin Purevsukh  
+**Course:** STATS 201 – Machine Learning for Social Science  
+**Instructor:** Prof. Luyao Zhang, Duke Kunshan University (Autumn 2025)
 
 ---
 
-## Background and Motivation
-- Composite indicators are sensitive to **scaling, imputation, weighting** → need transparency (OECD 2008).  
-- ESG research shows divergence across methodologies (Berg, Kölbel, and Rigobon 2022).  
-- **Mongolia**: highly energy-intensive, lagging renewable uptake, but 2030 policy targets for efficiency & diversification.  
-- **China**: benchmark case of successful energy intensity reduction and renewable scale-up (IEA 2020).  
+## 📘 Abstract
+This project evaluates Mongolia’s renewable-energy transition under two major policy interventions—the 2015 **Feed-in Tariff (FIT) Law** and the 2021 **New Recovery Policy (NRP)**—using the World Bank’s ESG dataset (1990–2021).  
+Machine-learning and statistical models, including interrupted-time-series regression, exponential-smoothing (ETS) forecasting, and vector-autoregression, are applied to analyze policy effects on renewable-energy consumption and energy intensity.  
+
+Results show that while renewable capacity has expanded to nearly 18 percent of installed power, actual renewable consumption has stagnated. Efficiency improvements continue but remain largely coal-based. The findings suggest that stronger grid investment, competitive renewable-energy auctions, and cross-sectoral integration are necessary to meet Mongolia’s 2030 sustainability goals.
 
 ---
 
-## Research Question
-**How have Mongolia’s renewable energy share and energy intensity evolved since 1990, how sensitive are conclusions to alternative imputation and weighting choices in a simple mini-index, and what lessons from China’s experience could inform Mongolia’s path to meeting its 2030 energy policy goals?**
+## 📂 Repository Structure
+├── code/
+│ ├── explanation/ # NLP + network analysis (sentiment, TF-IDF, co-occurrence)
+│ └── prediction/ # ETS + AutoGluon forecasting notebooks
+│
+├── data/
+│ ├── raw/ # Original World Bank ESG indicators
+│ ├── data_dictionary.csv # Variable names and descriptions
+│ └── README.md # Data provenance and preprocessing notes
+│
+├── visualizations/ # Forecast plots, trend lines, network graphs
+│
+├── docs/
+│ ├── STATS201_Final_Report.pdf
+│ ├── Poster.pdf
+│
+└── README.md 
 
 ---
 
-## Literature Review
-- Composite indicators: need transparency, sensitivity checks (OECD 2008).  
-- ESG ratings divergence motivates robustness (Berg et al. 2022).  
-- EPI audits show aggregation/weighting can reshape narratives (Wendling et al. 2020).  
-- IEA: China’s efficiency programs → benchmark for Mongolia.  
+## 📊 Navigation Guide
+
+| Task | Folder | Notebook or File |
+|------|---------|------------------|
+| **1. Data preprocessing** | `data/` | `data_cleaning.ipynb` |
+| **2. ML for Explanation** | `code/explanation/` | `renewable_nlp_network.ipynb` |
+| **3. ML for Prediction** | `code/prediction/` | `ets_autogluon_forecast.ipynb` |
+| **4. Visualization outputs** | `visualizations/` | PNG / SVG figures used in report |
+| **5. Report and Poster** | `docs/` | Final PDFs and supplementary files |
+
+To reproduce results:
+1. Clone the repository.  
+2. Open the notebooks in Jupyter or Google Colab.  
+3. Run cells sequentially; outputs will match figures in the report.  
 
 ---
 
-## Indicators
-- **Renewable Energy Share (EG.FEC.RNEW.ZS)** – measures diversification from coal.  
-- **Energy Intensity of GDP (EG.EGY.PRIM.PP.KD)** – SDG 7.3 efficiency indicator.  
-- Both are **World Bank** indicators → reproducible and comparable.  
+## 🧠 Method Overview
+- **Dataset:** World Bank Global Environment, Social and Governance Indicators (1990–2021)  
+- **Key variables:**  
+  - `EG.FEC.RNEW.ZS` – Renewable Energy Consumption (% of total final energy)  
+  - `EG.EGY.PRIM.PP.KD` – Energy Intensity (MJ per $2017 PPP GDP)  
+- **Models used:**  
+  - Interrupted Time Series (ITS) regression for policy evaluation  
+  - Exponential Smoothing (ETS) forecasting to 2030  
+  - Vector Autoregression (VAR) and Gradient Boosting for interdependence testing  
 
 ---
 
-## Methodology
-1. **Data & Preprocessing**  
-   - World Bank (1990–2021).  
-   - Imputation: forward-fill for short gaps, mean for long gaps.  
-   - Standardized to z-scores.  
-
-2. **Mini-Index Construction**  
-   - Equal weights (transparent baseline).  
-   - PCA weights (variance-driven alternative).  
-   - Compare robustness across imputation + weighting choices.  
-
-3. **Forecasting (to 2030)**  
-   Models applied separately to each indicator:  
-   - **ARIMA** (Box–Jenkins).  
-   - **Random Forest** (nonlinear).  
-   - **AutoGluon-Tabular** (AutoML ensemble).  
-   - Metrics: RMSE & MAE.  
-   - Forecasts: 2026–2030 with prediction intervals.  
+## 🙏 Acknowledgments
+Guidance and mentorship from **Prof. Luyao Zhang** made this project possible. I thank my classmates for valuable peer feedback and the open-data communities whose resources supported reproducibility. Analytical tools include **AutoGluon**, **statsmodels**, **networkx**, and **matplotlib**.  
+This repository adheres to **FAIR** and **CARE** data-governance principles to ensure that the work remains transparent, reusable, and ethically grounded.
 
 ---
 
-## Anticipated Results & Visualizations
-- Energy intensity: gradual decline but still high.  
-- Renewable share: modest growth from low base.  
-- Index differences: slope/level shifts highlight sensitivity.  
-
-**Figures planned:**  
-- Time-series plots (1990–latest).  
-- Sensitivity heatmap (weighting vs imputation).  
-- Forecast plots (2026–2030 with uncertainty bands).  
+## ⚖️ Disclaimer
+> This repository supports the final research proposal submitted to **STATS 201: Machine Learning for Social Science**, instructed by **Prof. Luyao Zhang** at **Duke Kunshan University** in Autumn 2025.
 
 ---
 
-## Ethical & Practical Considerations
-- Descriptive (not causal).  
-- Transparent about assumptions & uncertainty.  
-- FAIR: findable & accessible, but limited interoperability.  
-- CARE: avoid deficit framing, acknowledge governance biases.  
+## 🧩 Citation
+If referencing this repository, please cite as:  
+GitHub: [https://github.com/Rising-Stars-by-Sunshine/Enji_ProblemSet1_STATS201](https://github.com/Rising-Stars-by-Sunshine/Enji_ProblemSet1_STATS201)
 
 ---
 
-## References
-- Berg, Florian, Julian F. Kölbel, and Roberto Rigobon. 2022. *Aggregate Confusion: The Divergence of ESG Ratings.* Review of Finance 26 (6): 1315–44.  
-- Box, George E. P., Gwilym M. Jenkins, and Gregory C. Reinsel. 2015. *Time Series Analysis: Forecasting and Control.* 5th ed.  
-- Breiman, Leo. 2001. “Random Forests.” *Machine Learning* 45 (1): 5–32.  
-- Erickson, Nick, et al. 2020. *AutoGluon-Tabular: Robust and Accurate AutoML for Structured Data.* arXiv:2003.06505.  
-- IEA. 2020. *Energy Efficiency 2020.* Paris: IEA.  
-- Jolliffe, Ian T., and Jorge Cadima. 2016. “Principal Component Analysis: A Review and Recent Developments.” *Philosophical Transactions of the Royal Society A* 374.  
-- OECD. 2008. *Handbook on Constructing Composite Indicators.* Paris: OECD.  
-- Wendling, Z.A., et al. 2020. *2020 Environmental Performance Index.* Yale Center for Environmental Law & Policy.  
+© 2025 Enkhjin Purevsukh | Duke Kunshan University | Open Research License (CC-BY-4.0)
 
----
-```mermaid
-flowchart TD
-  A[Background & Motivation] --> B[Research Question]
-  B --> C[Indicators]
-  C -->|Renewable Share + Energy Intensity| D[Methodology]
-  D --> D1[Data & Preprocessing]
-  D1 --> D2[Mini-Index Construction]
-  D2 --> D3[Forecasting to 2030]
-  D3 --> E[Anticipated Results & Visualizations]
-  E --> F[Ethical & Practical Considerations]
-  F --> G[Policy Implications: Lessons from China]
-
-  %% cross-links / annotations
-  A -.->|Comparative context| B
-  D2 -.->|Equal vs PCA Weights| E
-  D3 -.->|ARIMA / ETS / DirectTabular| E
-```
-
-
-## System Configuration
-- **Local:** Python 3.12, Jupyter Notebook, pandas, scikit-learn, statsmodels, matplotlib, seaborn  
-- **Cloud:** Google Colab (GPU optional)  
-- **Version Control:** Git + GitHub  
-- **Reproducibility:** Deterministic seeds, requirements.txt to be added
 
 
 
